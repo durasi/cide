@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'CIDE_VERSION' ) ) {
-	define( 'CIDE_VERSION', '1.0.3' );
+	define( 'CIDE_VERSION', '1.0.4' );
 }
 
 if ( ! function_exists( 'cide_setup' ) ) {

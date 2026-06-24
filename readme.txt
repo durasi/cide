@@ -1,9 +1,9 @@
 === Cide ===
 Contributors: durasi
 Requires at least: 6.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, block-styles, wide-blocks, full-width-template, footer-widgets, e-commerce, custom-colors
