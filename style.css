@@ -4,9 +4,9 @@ Theme URI: https://github.com/durasi/cide
 Author: durasi
 Author URI: https://profiles.wordpress.org/durasi/
 Description: Cide is a modern e-commerce WordPress theme built for online stores. It ships with a built-in hero slider, product showcase sections, five header menu styles, smooth gradient transitions, dark mode, and deep WooCommerce integration. Lightweight, accessible, and translation-ready, Cide is made for shops, brands, and product-driven businesses.
-Version: 1.0.4
+Version: 1.0.5
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -66,7 +66,7 @@ p{margin:0 0 1.1em}
 .skip-link:focus{left:16px;top:16px;padding:12px 22px;background:var(--cide-surface);color:var(--cide-primary);z-index:100000;border-radius:12px;box-shadow:var(--cide-shadow-lg);font-weight:700}
 .screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
 .screen-reader-text:focus{background:var(--cide-surface);clip:auto;clip-path:none;color:var(--cide-primary);display:block;height:auto;left:16px;padding:16px 24px;top:16px;width:auto;z-index:100000;border-radius:12px;box-shadow:var(--cide-shadow-lg)}
-:focus-visible{outline:3px solid var(--cide-ring);outline-offset:2px;border-radius:8px}
+:focus-visible{outline:3px solid var(--cide-primary-strong);outline-offset:2px;border-radius:8px;box-shadow:0 0 0 6px rgba(255,255,255,.9)}
 
 .cide-container{max-width:var(--cide-maxw);margin:0 auto;padding:0 clamp(18px,4vw,36px)}
 .site-content{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--cide-gap);padding:var(--cide-gap) clamp(18px,4vw,36px);align-items:start;max-width:var(--cide-maxw);margin:0 auto}
@@ -217,7 +217,7 @@ p{margin:0 0 1.1em}
 /* ===== Cards / posts ===== */
 .hentry{background:var(--cide-surface);border:1px solid var(--cide-border);border-radius:var(--cide-radius);padding:clamp(24px,3vw,40px);margin-bottom:var(--cide-gap);box-shadow:var(--cide-shadow);transition:transform .25s ease,box-shadow .25s ease}
 .hentry:hover{transform:translateY(-3px);box-shadow:var(--cide-shadow-lg)}
-.entry-title{font-size:clamp(1.4rem,2.4vw,2rem);margin-bottom:.35em}
+.entry-title,.page-title,.archive .page-header h1{font-size:clamp(1.4rem,2.4vw,2rem);margin-bottom:.35em;overflow-wrap:anywhere;word-wrap:break-word}
 .entry-title a{color:var(--cide-text)}
 .entry-title a:hover,.entry-title a:focus{color:var(--cide-primary)}
 .entry-meta{font-size:.85rem;color:var(--cide-text-soft);margin-bottom:1.1em;display:flex;gap:10px;flex-wrap:wrap;align-items:center}

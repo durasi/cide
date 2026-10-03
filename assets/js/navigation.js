@@ -49,6 +49,11 @@
 			overlay.classList.add( 'is-active' );
 		}
 		document.body.style.overflow = 'hidden';
+		// A11y: move focus into the modal (close button is the first focusable).
+		var closeBtn = menuList ? menuList.querySelector( '.menu-close' ) : null;
+		if ( closeBtn ) {
+			closeBtn.focus();
+		}
 	}
 
 	function closeMenu() {
@@ -59,7 +64,12 @@
 			overlay.classList.remove( 'is-active' );
 		}
 		document.body.style.overflow = '';
+		var hadFocus = menuList && menuList.contains( document.activeElement );
 		reattachList();
+		// A11y: return focus to the toggle when the modal is dismissed.
+		if ( hadFocus ) {
+			toggle.focus();
+		}
 	}
 
 	toggle.addEventListener( 'click', function() {
@@ -82,8 +92,34 @@
 	} );
 
 	document.addEventListener( 'keydown', function( e ) {
-		if ( 'Escape' === e.key && nav.classList.contains( 'toggled' ) ) {
+		if ( ! nav.classList.contains( 'toggled' ) ) {
+			return;
+		}
+		if ( 'Escape' === e.key ) {
 			closeMenu();
+			return;
+		}
+		// A11y: trap keyboard focus inside the off-canvas menu (modal pattern).
+		// Tab on the last item wraps to the close button (first focusable);
+		// Shift+Tab on the close button wraps to the last item.
+		if ( 'Tab' === e.key && menuList && isMobile() ) {
+			var focusables = menuList.querySelectorAll( 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])' );
+			if ( ! focusables.length ) {
+				return;
+			}
+			var first = focusables[ 0 ];
+			var last = focusables[ focusables.length - 1 ];
+			if ( e.shiftKey && document.activeElement === first ) {
+				e.preventDefault();
+				last.focus();
+			} else if ( ! e.shiftKey && document.activeElement === last ) {
+				e.preventDefault();
+				first.focus();
+			} else if ( ! menuList.contains( document.activeElement ) ) {
+				// Focus escaped (e.g. body) — pull it back into the modal.
+				e.preventDefault();
+				first.focus();
+			}
 		}
 	} );
 

@@ -1,9 +1,9 @@
 === Cide ===
 Contributors: durasi
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, right-sidebar, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, block-styles, wide-blocks, full-width-template, footer-widgets, e-commerce, custom-colors
@@ -40,6 +40,13 @@ Yes. When WooCommerce is active, the front page automatically shows category, fe
 Yes. All theme strings use the "cide" text domain and the theme loads its own language files from the /languages folder.
 
 == Changelog ==
+
+= 1.0.5 =
+* Accessibility: keyboard focus is now trapped inside the mobile menu modal; focus moves to the close button on open and returns to the toggle on close
+* Accessibility: increased focus indicator contrast (solid outline with white halo)
+* Fix: long post/page titles now wrap within the content area
+* Fix: front page now respects the Settings > Reading front page display option
+* Updated "Tested up to" to WordPress 7.0
 
 = 1.0.3 =
 * Fixed horizontal overflow on mobile caused by the off-canvas menu.

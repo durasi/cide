@@ -5,6 +5,14 @@
  * @package Cide
  */
 
+// Respect Settings > Reading: when the front page is set to display the
+// latest posts, show the blog posts index instead of the static landing.
+// https://make.wordpress.org/themes/2014/06/28/correct-handling-of-static-front-page-and-custom-blog-posts-index-template/
+if ( 'posts' === get_option( 'show_on_front' ) ) {
+	require get_template_directory() . '/home.php';
+	return;
+}
+
 get_header();
 ?>
 <div class="cide-fullwidth">
@@ -12,6 +20,22 @@ get_header();
 	<?php cide_render_hero_slider(); ?>
 
 	<?php cide_render_trust_badges(); ?>
+
+	<?php
+	// Display the content of the selected static front page (Settings > Reading).
+	while ( have_posts() ) :
+		the_post();
+		if ( '' !== trim( get_the_content() ) ) :
+			?>
+			<section class="cide-section">
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
+			</section>
+			<?php
+		endif;
+	endwhile;
+	?>
 
 	<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 
